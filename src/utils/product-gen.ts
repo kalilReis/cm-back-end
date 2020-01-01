@@ -5,7 +5,7 @@ const random = (min: number, max: number): number => {
 }
 
 const generateProducts = (): ProductDTO[] => {
-  const sizes = ['solteiro', 'solteiro extra', 'casal', 'queen', 'king']
+  const sizes = ['Solteiro', 'Solteiro Extra', 'Casal', 'Queen', 'King']
   const types = ['I', 'II', 'III']
   const products: ProductDTO[] = []
 

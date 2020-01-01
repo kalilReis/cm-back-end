@@ -15,9 +15,20 @@ const toDTO = (p: ProductType): ProductDTO =>
 class ProductController {
   public static async get (req: Request, res: Response): Promise<Response> {
     try {
-      const products = await Product.find()
-      return res.status(200).json(products.map(toDTO))
+      const { q, page, perPage } = req.query
+      console.log(q, page, perPage)
+      const conditions = { $text: { $search: q } }
+      const options = {
+        page: Number(page),
+        perPage: Number(perPage)
+      }
+
+      const result = await Product.paginate(conditions, options)
+      const dtos = result.data.map(toDTO)
+
+      return res.status(200).json({ data: dtos, pagination: result.pagination })
     } catch (err) {
+      console.error(err)
       return res.status(500).json()
     }
   }

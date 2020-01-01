@@ -4868,6 +4868,11 @@ ts-jest@24.2.0:
     semver "^5.5"
     yargs-parser "10.x"
 
+ts-mongoose-pagination@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/ts-mongoose-pagination/-/ts-mongoose-pagination-1.1.2.tgz#6bbd804f2f6100fb59fed3602d174b8c41d2cd24"
+  integrity sha512-KkhfTX5VmGy4WVVkoxxL+M3lx9gSjwjeP1svt4oT9vigPDquX99omH3sm0gvlN1c3JgyVEavtypsw8yl2WGyFA==
+
 ts-node@8.5.2:
   version "8.5.2"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.5.2.tgz#434f6c893bafe501a30b32ac94ee36809ba2adce"
