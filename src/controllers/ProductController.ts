@@ -16,8 +16,7 @@ class ProductController {
   public static async get (req: Request, res: Response): Promise<Response> {
     try {
       const { q, page, perPage } = req.query
-      console.log(q, page, perPage)
-      const conditions = { $text: { $search: q } }
+      const conditions = q ? { $text: { $search: q } } : {}
       const options = {
         page: Number(page),
         perPage: Number(perPage)
