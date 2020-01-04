@@ -15,9 +15,10 @@ const toDTO = (p: ProductType): ProductDTO =>
 class ProductController {
   public static async get (req: Request, res: Response): Promise<Response> {
     try {
-      const { q, page, perPage } = req.query
+      const { q, page = 1, perPage = 0 } = req.query
       const conditions = q ? { $text: { $search: q } } : {}
       const options = {
+        sort: { name: 'asc' },
         page: Number(page),
         perPage: Number(perPage)
       }

@@ -5,15 +5,10 @@
 version: 2
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:10
-
+    - image: circleci/node:10
     working_directory: ~/repo
-
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -28,8 +23,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+  deploy:
+    steps:
       - setup_remote_docker
-
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$TAG .     
