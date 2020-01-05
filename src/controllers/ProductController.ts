@@ -1,32 +1,22 @@
 import { Request, Response } from 'express'
-import Product, { ProductDTO, ProductType } from '../schemas/Product'
 import generateProducts from '../utils/product-gen'
-
-const toDTO = (p: ProductType): ProductDTO =>
-  new ProductDTO(
-    p._id,
-    p.name,
-    p.type,
-    p.size,
-    p.currentPrice,
-    p.previousPrice,
-    p.imageLinks)
+import Product from '../schemas/Product'
 
 class ProductController {
   public static async get (req: Request, res: Response): Promise<Response> {
     try {
-      const { q, page = 1, perPage = 0 } = req.query
+      const { q, page = 1, limit = 10 } = req.query
       const conditions = q ? { $text: { $search: q } } : {}
+
       const options = {
         sort: { name: 'asc' },
         page: Number(page),
-        perPage: Number(perPage)
+        limit: Number(limit)
       }
 
       const result = await Product.paginate(conditions, options)
-      const dtos = result.data.map(toDTO)
 
-      return res.status(200).json({ data: dtos, pagination: result.pagination })
+      return res.status(200).json(result)
     } catch (err) {
       console.error(err)
       return res.status(500).json()

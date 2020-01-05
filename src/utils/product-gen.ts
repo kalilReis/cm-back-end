@@ -9,7 +9,7 @@ const generateProducts = (): ProductDTO[] => {
   const types = ['I', 'II', 'III']
   const products: ProductDTO[] = []
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 107; i++) {
     const fios = Math.floor(Math.random() * 9) * 100
     const size = sizes[random(0, sizes.length)]
     const type = types[random(0, types.length)]

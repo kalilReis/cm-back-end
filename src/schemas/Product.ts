@@ -1,5 +1,5 @@
 import { PaginateModel, Schema, model, Document } from 'mongoose'
-import { mongoosePagination } from 'ts-mongoose-pagination'
+import mongoosePaginate from 'mongoose-paginate-v2'
 
 export interface ProductType extends Document {
   readonly id: string
@@ -45,7 +45,7 @@ const ProductSchema = new Schema(
   }
 )
 
-ProductSchema.plugin(mongoosePagination)
+ProductSchema.plugin(mongoosePaginate)
 
 ProductSchema.index({ '$**': 'text' })
 
