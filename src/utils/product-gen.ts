@@ -1,4 +1,23 @@
-import { ProductDTO } from '../schemas/Product'
+
+export class ProductDTO {
+  constructor (
+    readonly id: string,
+    readonly name: string,
+    readonly type: string,
+    readonly size: string,
+    readonly currentPrice: number,
+    readonly previousPrice: number,
+    readonly imageLinks: string[]
+  ) {
+    this.id = id
+    this.name = name
+    this.type = type
+    this.size = size
+    this.currentPrice = currentPrice
+    this.previousPrice = previousPrice
+    this.imageLinks = imageLinks
+  }
+}
 
 const random = (min: number, max: number): number => {
   return Math.floor(Math.random() * max) + min

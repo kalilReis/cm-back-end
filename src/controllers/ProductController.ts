@@ -9,9 +9,10 @@ class ProductController {
       const conditions = q ? { $text: { $search: q } } : {}
 
       const options = {
-        sort: { name: 'asc' },
         page: Number(page),
-        limit: Number(limit)
+        limit: Number(limit),
+        projection: { score: { $meta: 'textScore' } },
+        sort: { score: { $meta: 'textScore' } }
       }
 
       const result = await Product.paginate(conditions, options)
