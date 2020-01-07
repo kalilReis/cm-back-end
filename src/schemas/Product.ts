@@ -27,8 +27,7 @@ const ProductSchema = new Schema(
 
 ProductSchema.plugin(mongoosePaginate)
 
-ProductSchema.index({ '$**': 'text' })
+ProductSchema.index({ name: 'text', type: 'text', size: 'text' })
 
 const Product : PaginateModel<ProductType> = model('products', ProductSchema)
 export default Product
-// export default model<ProductType>('products', ProductSchema)
