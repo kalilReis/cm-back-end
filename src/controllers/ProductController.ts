@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import generateProducts from '../utils/product-gen'
+
 import Product from '../schemas/Product'
 
 class ProductController {
@@ -20,18 +20,6 @@ class ProductController {
       return res.status(200).json(result)
     } catch (err) {
       console.error(err)
-      return res.status(500).json()
-    }
-  }
-
-  public static async reset (req: Request, res: Response): Promise<Response> {
-    try {
-      await Product.deleteMany({})
-      generateProducts().forEach((element) => {
-        Product.create({ ...element })
-      })
-      return res.status(200).json()
-    } catch (err) {
       return res.status(500).json()
     }
   }

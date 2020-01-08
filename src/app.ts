@@ -3,6 +3,8 @@ import cors from 'cors'
 import mongoose, { Mongoose } from 'mongoose'
 import routes from './routes'
 import { Server } from 'http'
+import dotenv from 'dotenv'
+dotenv.config()
 
 class App {
     readonly express: Application = express()
