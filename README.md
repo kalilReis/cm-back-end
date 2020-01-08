@@ -12,6 +12,12 @@ This is the backend part of an app where you can searchs for products by combine
     yarn build
     yarn start
 
+#### Don't forget to provide the MONGODB_URI environment variable with the mongodb URI like:
+
+    mongodb://[username:password@]host1[:port1][/[database][?options]]
+
+this project uses dotenv so you can create a file named .env and add the enviroment variable there!
+
 ### You can see this project running at:
 
 aws: [http://ec2-13-59-33-83.us-east-2.compute.amazonaws.com/products](http://ec2-13-59-33-83.us-east-2.compute.amazonaws.com/products)
