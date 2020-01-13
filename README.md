@@ -1,16 +1,18 @@
+# cm-back-end
+
 [![<kalilReis>](https://circleci.com/gh/kalilReis/cm-back-end.svg?style=svg)](https://circleci.com/gh/kalilReis/cm-back-end)
 
-# What is that?
+This is the backend part of the app proposed as a test for Coteminas Dev Team.  
 
-This is the backend part of an app where you can searchs for products by combined fields like "Cama de Solteiro" and get the result paginated.
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### How to run it?
+### Installing?
 
     git clone  https://github.com/kalilReis/cm-back-end.git
     cd cm-back-end
     yarn install
-    yarn build
-    yarn start
+    
 
 #### Don't forget to provide the MONGODB_URI environment variable with the mongodb URI like:
 
@@ -18,6 +20,13 @@ This is the backend part of an app where you can searchs for products by combine
 
 this project uses dotenv so you can create a file named .env and add the enviroment variable there!
 
+### Running
+    yarn build
+    yarn start
+
+### Dev mode 
+    yarn dev
+   
 ### You can see this project running at:
 
 aws: [http://ec2-13-59-33-83.us-east-2.compute.amazonaws.com/products](http://ec2-13-59-33-83.us-east-2.compute.amazonaws.com/products)
